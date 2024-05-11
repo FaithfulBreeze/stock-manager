@@ -4,10 +4,10 @@ const loadProducts = async (req, res) =>{
     const products_count = await Product.find()
     .count()
     const {page} = req.query
-    const skip = (page >= products_count ? products_count : page)
+    const skip = (page >= products_count ? products_count : page*10)
     res.append("maximum-page", products_count-1)
     const products = await Product.find()
-    .sort({product_onWarning: 'desc', product_stock: 'asc'})
+    .sort({onWarning: 'desc', stock: 'asc'})
     .skip(skip)
     .limit(10)
     .select({__v: false})
@@ -15,9 +15,15 @@ const loadProducts = async (req, res) =>{
 }
 
 const registerProduct = async (req, res) =>{
-    const product = new Product(req.body)
+    const {body} = req
+    body.value = Number(body.value)
+    body.stock = Number(body.stock)
+    body.warningNumber = Number(body.warningNumber)
+    body.onWarning = body.stock <= body.warningNumber
+    body.available = body.stock > 0
+    const product = new Product(body)
     await product.save()
-    res.send(product)
+    res.status(301).redirect('/')
 }
 
 module.exports = {

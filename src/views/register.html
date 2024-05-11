@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/control-pannel.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/api/registerProduct" method="post">
+        <fieldset>
+            <legend>Product</legend>
+            <label for="model">Product model:</label>
+            <input type="text" name="model" id="model" required >
+            <label for="value">Value: </label>
+            <input type="number" name="value" id="value" required>
+            <label for="stock">Stock: </label>
+            <input type="number" name="stock" id="stock" required>
+            <label for="gender">Gender: </label>
+            <input type="text" name="gender" id="gender" required>
+            <label for="warningNumber">Warning Number: </label>
+            <input type="number" name="warningNumber" id="warningNumber" required>
+            <input type="submit" value="Register">
+        </fieldset>
+    </form>
+    <div id="control_pannel">
+        <a href="/"><button>List stock</button></a>
+    </div>
+</body>
+</html>

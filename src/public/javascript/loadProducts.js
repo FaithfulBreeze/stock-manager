@@ -23,7 +23,8 @@ function loadProducts(index){
         }
         data.forEach(product => {
             const tr = document.createElement('tr')
-            if(product.product_onWarning == true) tr.classList += "onWarning"
+            if(product.onWarning == true) tr.classList = "onWarning"
+            if(product.available == false) tr.classList = "notAvailable"
             for(property in product){
                 const td = document.createElement('td')
                 td.innerText = product[property]
@@ -35,5 +36,5 @@ function loadProducts(index){
 }
 
 function getMaximumPage(maximumPageParam){
-    maximumPage = Number(maximumPageParam)
+    maximumPage = Math.trunc(maximumPageParam/10)
 }
