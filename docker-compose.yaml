@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    container_name: node-api
+    ports:
+      - 3030:3030
+    volumes:
+      - .:/app
+      - /node_modules
+  database:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo_data:/data/db
