@@ -15,6 +15,10 @@ form{
     padding: 4em;
 }
 
+form:not(form:last-child){
+    margin-bottom: -150px;
+}
+
 input:not(input:last-child){
     width: 100%;
     margin-bottom: 10px;
@@ -33,5 +37,3 @@ input:last-child{
     border: 2px solid rgba(0, 0, 0, 0.712);
     box-shadow: 2px 2px 2px gray;
 }
-
-

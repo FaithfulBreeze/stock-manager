@@ -27,7 +27,12 @@ function loadProducts(index){
             if(product.available == false) tr.classList = "notAvailable"
             for(property in product){
                 const td = document.createElement('td')
-                td.innerText = product[property]
+                if(property == "_id"){
+                    const a = document.createElement('a')
+                    a.href = `${product[property]}`
+                    a.innerText = product[property]
+                    td.appendChild(a)
+                }else td.innerText = product[property]
                 tr.appendChild(td)
             }
             table.appendChild(tr)

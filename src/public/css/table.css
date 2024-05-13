@@ -4,6 +4,7 @@ table{
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+    font-weight: 700;
 }
 
 table, th, td{
@@ -15,19 +16,16 @@ table, th, td{
 tr:not(.notAvailable, .onWarning), th{
     background-color:  rgb(0, 203, 0);
     color: white;
-    font-weight: 500;
 }
 
 .notAvailable{
     background-color: red;
     color: white;
-    font-weight: 600;
 }
 
 .onWarning{
     background-color: yellow;
     color: black;
-    font-weight: 700;
 }
 
 th{
@@ -38,3 +36,7 @@ th{
     font-family: monospace;
 }
 
+a{
+    color: inherit;
+    font: inherit;
+}

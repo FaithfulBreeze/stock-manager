@@ -14,11 +14,15 @@ const loadProducts = async (req, res) =>{
     res.json(products)
 }
 
+const loadSingleProduct = async (req, res) =>{
+    const id = req.query.id
+    const product = await Product.findById(id)
+    .select({__v: false, onWarning: false, available: false})
+    res.json(product)
+}
+
 const registerProduct = async (req, res) =>{
     const {body} = req
-    body.value = Number(body.value)
-    body.stock = Number(body.stock)
-    body.warningNumber = Number(body.warningNumber)
     body.onWarning = body.stock <= body.warningNumber
     body.available = body.stock > 0
     const product = new Product(body)
@@ -26,7 +30,22 @@ const registerProduct = async (req, res) =>{
     res.status(301).redirect('/')
 }
 
+const updateProduct = async (req, res) =>{
+    const {body} = req
+    let product = await Product.findById(req.query.id)
+    product.value = body.value
+    product.stock = body.stock
+    product.gender = body.gender
+    product.warningNumber = body.warningNumber
+    product.onWarning = product.stock < product.warningNumber
+    product.available = product.stock > 0
+    product.save()
+    res.status(301)
+}
+
 module.exports = {
     loadProducts,
-    registerProduct
+    loadSingleProduct,
+    registerProduct,
+    updateProduct
 }
