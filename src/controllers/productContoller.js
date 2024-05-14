@@ -43,9 +43,15 @@ const updateProduct = async (req, res) =>{
     res.status(301)
 }
 
+const deleteProduct = async (req, res) =>{
+    await Product.deleteMany({_id: req.query.id})
+    res.status(200)
+}
+
 module.exports = {
     loadProducts,
     loadSingleProduct,
     registerProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }

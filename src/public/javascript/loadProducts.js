@@ -16,6 +16,7 @@ function loadProducts(index){
         return response.json()
     })
     .then(data => {
+            if(data.length == 0) return table.innerHTML = `<h3>No products yet</h3>`
             for(property in data[0]){
                 const th = document.createElement('th')
                 th.innerText = property

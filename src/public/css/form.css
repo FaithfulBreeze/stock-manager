@@ -8,6 +8,10 @@ fieldset{
     padding: 1em;
 }
 
+main{
+    margin-top: -50px;
+}
+
 form{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;

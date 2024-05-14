@@ -10,26 +10,27 @@
     <script src="javascript/loadSingleProduct.js" defer></script>
     <script src="javascript/updateProduct.js" defer></script>
     <script src="javascript/stockForm.js" defer></script>
+    <script src="javascript/deleteProduct.js" defer></script>
 </head>
 <body>
     <h1>Product Page</h1>
-    <form>
-        <fieldset>
-            <legend>Product</legend>
-            <label for="id">Id:</label>
-            <input type="text" name="_id" id="id" disabled>
-            <label for="model">Product model:</label>
-            <input type="text" name="model" id="model" disabled>
-            <label for="value">Value: </label>
-            <input type="number" name="value" id="value">
-            <label for="gender">Gender: </label>
-            <input type="text" name="gender" id="gender">
-            <label for="warningNumber">Warning Number: </label>
-            <input type="number" name="warningNumber" id="warningNumber">
-            <input id="submit_form" type="submit" value="Update">
-        </fieldset>
-    </form>
-    <div>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Product</legend>
+                <label for="id">Id:</label>
+                <input type="text" name="_id" id="id" disabled>
+                <label for="model">Product model:</label>
+                <input type="text" name="model" id="model" disabled>
+                <label for="value">Value: </label>
+                <input type="number" name="value" id="value">
+                <label for="gender">Gender: </label>
+                <input type="text" name="gender" id="gender">
+                <label for="warningNumber">Warning Number: </label>
+                <input type="number" name="warningNumber" id="warningNumber">
+                <input id="submit_form" type="submit" value="Update">
+            </fieldset>
+        </form>
         <form>
             <fieldset>
                 <legend>Stock</legend>
@@ -40,7 +41,13 @@
                 <button id="rmv">Remove</button>
             </fieldset>
         </form>
-    </div>
+        <form>
+            <fieldset>
+                <legend>Delete This Product</legend>
+                <input type="submit" value="Delete Product" id="delete_button">
+            </fieldset>
+        </form>
+    </main>
     <div id="control_pannel">
         <a href="/"><button>List stock</button></a>
         <a href="/register"><button>Register a product</button></a>
