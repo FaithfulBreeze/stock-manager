@@ -4,7 +4,7 @@ const dbConnect = require('./model/connection.js')
 const cors = require('cors')
 const app = express()
 
-dbConnect().then(app.listen(3030))
+dbConnect().then(app.listen(3030, '0.0.0.0'))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
