@@ -9,7 +9,7 @@ function loadProducts(index){
     }
     table.innerHTML = `<tr id="t_header"></tr>`
     const tableHeader = document.querySelector('#t_header')
-    fetch(`https://18.191.56.16:3030/api/loadProducts?page=${page}`)
+    fetch(`https://52.67.163.103:3030/api/loadProducts?page=${page}`)
     .then(response =>{
         const maximumPage = response.headers.get("maximum-page")
         getMaximumPage(maximumPage)

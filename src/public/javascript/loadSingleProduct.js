@@ -2,7 +2,7 @@ const inputs = document.querySelectorAll('input')
 const stock_input = document.querySelector('#stock_form')
 const id = window.location.href.split('/')[3]
 
-fetch(`https://18.191.56.16:3030/api/loadSingleProduct?id=${id}`)
+fetch(`https://52.67.163.103:3030/api/loadSingleProduct?id=${id}`)
 .then(response => response.json())
 .then(product =>{
     let i = 0
