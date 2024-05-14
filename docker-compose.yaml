@@ -4,8 +4,6 @@ services:
     container_name: node-api
     ports:
       - 3030:3030
-    volumes:
-      - .:/app
 
   database:
     image: mongo
