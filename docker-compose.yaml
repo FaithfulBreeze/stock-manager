@@ -7,9 +7,6 @@ services:
     volumes:
       - .:/app
       - /node_modules
-    networks:
-      stock-manager-network:
-        ipv4_address: 172.34.0.2
 
   database:
     image: mongo
@@ -18,14 +15,3 @@ services:
       - 27017:27017
     volumes:
       - ./mongo_data:/data/db
-    networks:
-      stock-manager-network:
-        ipv4_address: 172.34.0.3
-
-    
-networks:
-  stock-manager-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.34.0.0/16
