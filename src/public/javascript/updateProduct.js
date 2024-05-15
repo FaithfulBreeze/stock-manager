@@ -7,7 +7,7 @@ submit_form.addEventListener('click', e =>{
     form_inputs.forEach(input =>{
         if(input.name && input.name != '_id') body[input.name] = input.value
     })
-    fetch(`http://ec2-18-230-85-214.sa-east-1.compute.amazonaws.com:3030/api/updateProduct?id=${_id}`, {
+    fetch(`${window.location.href.split(':')[0]+':'+window.location.href.split(':')[1]}:3030/api/updateProduct?id=${_id}`, {
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'

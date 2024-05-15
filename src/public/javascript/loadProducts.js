@@ -9,7 +9,7 @@ function loadProducts(index){
     }
     table.innerHTML = `<tr id="t_header"></tr>`
     const tableHeader = document.querySelector('#t_header')
-    fetch(`http://ec2-18-230-85-214.sa-east-1.compute.amazonaws.com:3030/api/loadProducts?page=${page}`)
+    fetch(`${window.location.href.split(':')[0]+':'+window.location.href.split(':')[1]}:3030/api/loadProducts?page=${page}`)
     .then(response =>{
         const maximumPage = response.headers.get("maximum-page")
         getMaximumPage(maximumPage)
