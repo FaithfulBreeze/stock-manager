@@ -1,5 +1,5 @@
 const form_inputs = document.querySelectorAll('input')
-const _id = window.location.href.split('/')[3]
+const _id = window.location.href.split('id=')[1]
 const submit_form = document.querySelector('#submit_form')
 submit_form.addEventListener('click', e =>{
     e.preventDefault()
@@ -7,7 +7,7 @@ submit_form.addEventListener('click', e =>{
     form_inputs.forEach(input =>{
         if(input.name && input.name != '_id') body[input.name] = input.value
     })
-    fetch(`https://52.67.163.103:3030/api/updateProduct?id=${_id}`, {
+    fetch(`http://ec2-18-230-85-214.sa-east-1.compute.amazonaws.com:3030/api/updateProduct?id=${_id}`, {
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'

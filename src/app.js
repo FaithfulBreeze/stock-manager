@@ -14,3 +14,6 @@ app.use(express.static(`${__dirname}/public`))
 
 app.use('/', require('./routes/root.js'))
 app.use('/api/', require('./routes/api.js'))
+app.use('*', (req, res) =>{
+  res.status(404).json({error: 'not found'})
+})

@@ -9,7 +9,7 @@ function loadProducts(index){
     }
     table.innerHTML = `<tr id="t_header"></tr>`
     const tableHeader = document.querySelector('#t_header')
-    fetch(`https://52.67.163.103:3030/api/loadProducts?page=${page}`)
+    fetch(`http://ec2-18-230-85-214.sa-east-1.compute.amazonaws.com:3030/api/loadProducts?page=${page}`)
     .then(response =>{
         const maximumPage = response.headers.get("maximum-page")
         getMaximumPage(maximumPage)
@@ -30,7 +30,7 @@ function loadProducts(index){
                 const td = document.createElement('td')
                 if(property == "_id"){
                     const a = document.createElement('a')
-                    a.href = `${product[property]}`
+                    a.href = `id=${product[property]}`
                     a.innerText = product[property]
                     td.appendChild(a)
                 }else td.innerText = product[property]
