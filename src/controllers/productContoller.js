@@ -23,7 +23,7 @@ const loadSingleProduct = async (req, res) =>{
 
 const registerProduct = async (req, res) =>{
     const {body} = req
-    body.onWarning = body.stock < body.warningNumber
+    body.onWarning = +body.stock < +body.warningNumber
     body.available = body.stock > 0
     const product = new Product(body)
     await product.save()
@@ -37,7 +37,7 @@ const updateProduct = async (req, res) =>{
     product.stock = body.stock
     product.gender = body.gender
     product.warningNumber = body.warningNumber
-    product.onWarning = product.stock < product.warningNumber
+    product.onWarning = +product.stock < +product.warningNumber
     product.available = product.stock > 0
     product.save()
     res.status(301)
