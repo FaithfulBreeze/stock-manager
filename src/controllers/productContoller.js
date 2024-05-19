@@ -23,7 +23,7 @@ const loadSingleProduct = async (req, res) =>{
 
 const registerProduct = async (req, res) =>{
     const {body} = req
-    body.onWarning = body.stock <= body.warningNumber
+    body.onWarning = body.stock < body.warningNumber
     body.available = body.stock > 0
     const product = new Product(body)
     await product.save()
