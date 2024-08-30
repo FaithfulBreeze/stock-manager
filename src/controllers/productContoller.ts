@@ -3,9 +3,7 @@ import { Request, Response } from 'express'
 
 const loadProducts = async (req: Request, res: Response) =>{
     try {
-        const count_result = await Product.find()
-        .count()
-        const products_count = count_result as unknown as number
+        const products_count = await Product.countDocuments()
         const page: number = Number(req.query.page) || 0
         const skip = (page >= products_count ? products_count : page*10)
         res.append("maximum-page", String(products_count - 1))
