@@ -7,7 +7,7 @@ submit_form.addEventListener('click', e =>{
     form_inputs.forEach(input =>{
         if(input.name && input.name != '_id') body[input.name] = input.value
     })
-    fetch(`${window.location.href.split(':')[0]+':'+window.location.href.split(':')[1]}:3030/api/updateProduct?id=${_id}`, {
+    fetch(`/api/updateProduct?id=${_id}`, {
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'

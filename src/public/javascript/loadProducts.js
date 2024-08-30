@@ -9,8 +9,9 @@ function loadProducts(index){
     }
     table.innerHTML = `<tr id="t_header"></tr>`
     const tableHeader = document.querySelector('#t_header')
-    fetch(`${window.location.href.split(':')[0]+':'+window.location.href.split(':')[1]}:3030/api/loadProducts?page=${page}`)
+    fetch(`/api/loadProducts?page=${page}`)
     .then(response =>{
+        console.log(response)
         const maximumPage = response.headers.get("maximum-page")
         getMaximumPage(maximumPage)
         return response.json()
