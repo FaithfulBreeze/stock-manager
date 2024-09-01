@@ -11,7 +11,6 @@ function loadProducts(index){
     const tableHeader = document.querySelector('#t_header')
     fetch(`/api/loadProducts?page=${page}`)
     .then(response =>{
-        console.log(response)
         const maximumPage = response.headers.get("maximum-page")
         getMaximumPage(maximumPage)
         return response.json()
