@@ -1,14 +1,4 @@
 services:
-  api:
-    build: .
-    container_name: node-api
-    ports:
-      - 3030:3030
-    volumes:
-      - ./:/app
-    networks:
-      - stock-manager-network
-
   database:
     image: mongo
     container_name: mongodb
